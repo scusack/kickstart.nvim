@@ -925,6 +925,7 @@ require('lazy').setup({
   require 'custom.plugins.render-markdown',
   require 'custom.plugins.conjure',
   require 'custom.plugins.bufferline',
+  require 'custom.plugins.guttermarks',
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!

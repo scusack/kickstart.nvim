@@ -164,6 +164,15 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 --  See `:help vim.keymap.set()`
+--
+--  SIM my options
+--
+-- Disable all default clients first (optional, but cleaner)
+vim.g['conjure#client#enabled'] = false
+-- Explicitly enable only Clojure and Lua
+-- vim.g["conjure#client#clojure#nrepl#enabled"] = true
+-- vim.g["conjure#client#lua#nvim#enabled"] = true
+-- vim.g["conjure#client#fennel#aniseed#enabled"] = true
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -696,10 +705,12 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
+        clojure = { 'cljstyle' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettierd' },
       },
     },
   },
@@ -873,7 +884,8 @@ require('lazy').setup({
     branch = 'main',
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter-intro`
     config = function()
-      local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' }
+      local parsers =
+        { 'bash', 'c', 'clojure', 'diff', 'html', 'javascript', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'python', 'query', 'vim', 'vimdoc' }
       require('nvim-treesitter').install(parsers)
       vim.api.nvim_create_autocmd('FileType', {
         callback = function(args)

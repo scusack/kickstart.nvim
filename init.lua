@@ -931,14 +931,14 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- SIM decided to require them explicitly rather than doing it automatically with import
-  require 'custom.plugins.org-mode',
-  require 'custom.plugins.render-markdown',
-  require 'custom.plugins.conjure',
-  require 'custom.plugins.bufferline',
-  require 'custom.plugins.guttermarks',
+  -- require 'custom.plugins.org-mode',
+  -- require 'custom.plugins.render-markdown',
+  -- require 'custom.plugins.conjure',
+  -- require 'custom.plugins.bufferline',
+  -- require 'custom.plugins.guttermarks',
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!

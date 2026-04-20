@@ -611,6 +611,7 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         pyright = {},
+        clojure_lsp = {},
         -- rust_analyzer = {},
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -697,7 +698,7 @@ require('lazy').setup({
           return nil
         else
           return {
-            timeout_ms = 500,
+            timeout_ms = 1500,
             lsp_format = 'fallback',
           }
         end

@@ -698,7 +698,7 @@ require('lazy').setup({
           return nil
         else
           return {
-            timeout_ms = 7000,
+            timeout_ms = 1500,
             lsp_format = 'fallback',
           }
         end
@@ -707,7 +707,7 @@ require('lazy').setup({
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
         python = { 'isort', 'black' },
-        clojure = { 'cljstyle' },
+        -- clojure = { 'cljstyle' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
@@ -923,7 +923,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommended keymaps
 
@@ -932,13 +932,6 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   { import = 'custom.plugins' },
-  --
-  -- SIM decided to require them explicitly rather than doing it automatically with import
-  -- require 'custom.plugins.org-mode',
-  -- require 'custom.plugins.render-markdown',
-  -- require 'custom.plugins.conjure',
-  -- require 'custom.plugins.bufferline',
-  -- require 'custom.plugins.guttermarks',
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!

@@ -611,6 +611,7 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         pyright = {},
+        -- basedpyright = {},
         clojure_lsp = {},
         -- rust_analyzer = {},
         --
@@ -875,6 +876,7 @@ require('lazy').setup({
 
       -- ... and there is more!
       --  Check out: https://github.com/nvim-mini/mini.nvim
+      require('mini.pairs').setup()
     end,
   },
 
@@ -886,7 +888,7 @@ require('lazy').setup({
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter-intro`
     config = function()
       local parsers =
-        { 'bash', 'c', 'clojure', 'diff', 'html', 'javascript', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'python', 'query', 'vim', 'vimdoc' }
+        { 'bash', 'c', 'clojure', 'diff', 'html', 'javascript', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'python', 'pug', 'query', 'vim', 'vimdoc' }
       require('nvim-treesitter').install(parsers)
       vim.api.nvim_create_autocmd('FileType', {
         callback = function(args)
@@ -921,9 +923,9 @@ require('lazy').setup({
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
   -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
-  require 'kickstart.plugins.autopairs',
+  -- require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommended keymaps
 
@@ -958,6 +960,9 @@ require('lazy').setup({
     },
   },
 })
+
+-- local autopairs = require 'nvim-autopairs'
+-- autopairs.get_rules("'")[1].not_filetypes = { 'clojure', 'lisp' }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
